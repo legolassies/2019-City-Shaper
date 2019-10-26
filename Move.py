@@ -20,12 +20,12 @@ def stop(Brake):
     left_motor.stop (Brake)    
     right_motor.stop (Brake)    
 
-def move_for_ever(Power):
+def move_forever(Power):
     left_motor.run(Power)    
     right_motor.run(Power)   
 
 def move_to_black(Power, Port, Brake):
-    move_for_ever(Power)
+    move_forever(Power)
     color_sensor=ColorSensor(Port)
     print(color_sensor.reflection())
 
@@ -36,7 +36,7 @@ def move_to_black(Power, Port, Brake):
     brick.sound.beep()
 
 def move_to_black_for_square(Power, Port1, Port2, Brake):
-    move_for_ever(Power)
+    move_forever(Power)
     light_sensor1=ColorSensor(Port1)
     light_sensor2=ColorSensor(Port2)
     print(str(light_sensor1.reflection())+ " " + str(light_sensor2.reflection()))
@@ -53,7 +53,7 @@ def move_to_black_for_square(Power, Port1, Port2, Brake):
    
 
 def move_to_white(Power, Port, Brake):
-    move_for_ever(Power)
+    move_forever(Power)
     color_sensor=ColorSensor(Port)
     print(color_sensor.reflection())
 
@@ -68,33 +68,33 @@ def square():
     right_sensor=ColorSensor(Port.S4) 
     move_to_black_for_square(50,Port.S1,Port.S4,Stop.BRAKE)
 
-# def follow_line(Power, Port, Brake)
-#     #move, then check the color underneath the sensor.
-#     #If the color underneath the sensor is black, move forwards.
-#     #If the color is not black, turn right and check the color again.
-#     #Do the same for the left side of the robot.
-#     #If there is no black on either sides of the robot, then beep and stop.
+def follow_line(Power, Port, Brake):
+    #move, then check the color underneath the sensor.
+    #If the color underneath the sensor is black, move forwards.
+    #If the color is not black, turn right and check the color again.
+    #Do the same for the left side of the robot.
+    #If there is no black on either sides of the robot, then beep and stop.
 
-#     #Move, then check the color underneath the sensor.
-#     move_for_ever(Power)
-#     while color_reflection <15
+    #Move, then check the color underneath the sensor.
+    move_forever(Power)
+    while color_reflection <15:
 
-#         #If the color underneath the sensor is black, move forwards.
-#         move_for_ever(Power)
-#         print color_reflection
+        #If the color underneath the sensor is black, move forwards.
+        move_forever(Power)
+        #print color_reflection
 
-#     #If the color is not black, turn right and check the color again.
-#     pivotright (Power, Degrees, Brake) 
-#     while color_reflection <15
-#         move_for_ever(Power)
-#         print color_reflection
+    #If the color is not black, turn right and check the color again.
+    pivotright (Power, Degrees, Brake)
+    while color_reflection <15:
+        move_forever(Power)
+        #print color_reflection
     
-#     #Do the same for the left side of the robot.
-#     pivotleft (Power, Degrees, Brake)
-#     while color_reflection <15
-#         move_for_ever(Power)
-#         print color_reflection
+    #Do the same for the left side of the robot.
+    pivotleft (Power, Degrees, Brake)
+    while color_reflection <15:
+        move_forever(Power)
+        #print color_reflection
 
-#     #If there is no black on either sides of the robot, then beep and stop.
-#     brick.sound.beep()
-#     stop(Brake) 
+    #If there is no black on either sides of the robot, then beep and stop.
+    brick.sound.beep()
+    stop(Brake) 
